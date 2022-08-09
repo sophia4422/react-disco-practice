@@ -26,8 +26,12 @@ function reducer(state, { type, payload }) {
   }
 }
 
+const callMonkey = () => {
+  console.log("monkey");
+};
+
 function App() {
-  const [{ currentOperand, operation }, dispatch] = useReducer(reducer, {});
+  const [{ currentOperand }, dispatch] = useReducer(reducer, {});
 
   return (
     <div className="monkey-grid">
@@ -46,7 +50,9 @@ function App() {
       <DigitButton digit="*" dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
       <DigitButton digit="#" dispatch={dispatch} />
-      <button className="span-two">Call</button>
+      <button className="span-two" onClick={callMonkey}>
+        Call
+      </button>
       <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
         DEL
       </button>
