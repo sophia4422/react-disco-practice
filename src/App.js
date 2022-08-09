@@ -1,3 +1,4 @@
+import { StarRateOutlined } from "@mui/icons-material";
 import { useReducer } from "react";
 import DigitButton from "./DigitButton";
 import "./index.css";
@@ -5,7 +6,11 @@ import "./index.css";
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   DELETE_DIGIT: "delete-digit",
-  CALL: "call",
+  CALL_MONKEY: "call",
+};
+
+export const callMonkey = () => {
+  console.log("monkeyyyy");
 };
 
 function reducer(state, { type, payload }) {
@@ -21,17 +26,17 @@ function reducer(state, { type, payload }) {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
+
     case ACTIONS.DELETE_DIGIT:
       return {};
+
+    case ACTIONS.CALL_MONKEY:
+      return callMonkey();
   }
 }
 
-const callMonkey = () => {
-  console.log("monkey");
-};
-
 function App() {
-  const [{ currentOperand }, dispatch] = useReducer(reducer, {});
+  const [{ currentOperand, operation }, dispatch] = useReducer(reducer, {});
 
   return (
     <div className="monkey-grid">
@@ -50,7 +55,10 @@ function App() {
       <DigitButton digit="*" dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
       <DigitButton digit="#" dispatch={dispatch} />
-      <button className="span-two" onClick={callMonkey}>
+      <button
+        className="span-two"
+        onClick={() => dispatch({ type: ACTIONS.CALL_MONKEY })}
+      >
         Call
       </button>
       <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
