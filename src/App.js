@@ -21,6 +21,8 @@ function reducer(state, { type, payload }) {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
+    case ACTIONS.DELETE_DIGIT:
+      return {};
   }
 }
 
@@ -45,7 +47,9 @@ function App() {
       <DigitButton digit="0" dispatch={dispatch} />
       <DigitButton digit="#" dispatch={dispatch} />
       <button className="span-two">Call</button>
-      <button>DEL</button>
+      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
+        DEL
+      </button>
     </div>
   );
 }
