@@ -7,10 +7,19 @@ body {
   background: linear-gradient(to right, #fc7b8f, #6a59f7);
 }
 
+.phone-body {
+  background-color: rgba(245, 224, 147, 0.244);
+  justify-content: center;
+  width: 30rem;
+  margin-left: 30%;
+  border-radius: 5%;
+}
+
 .monkey-grid {
   display: grid;
   margin-top: 2rem;
   justify-content: center;
+  padding: 3rem;
   grid-template-columns: repeat(3, 8rem);
   grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
@@ -37,7 +46,7 @@ body {
 
 .output {
   grid-column: 1 / -1;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(10, 10, 37, 0.75);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -45,6 +54,7 @@ body {
   padding: 0.75rem;
   word-wrap: break-word;
   word-break: break-all;
+  border: 1px solid white;
 }
 
 .output .current-operand {
