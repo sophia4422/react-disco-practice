@@ -1,10 +1,14 @@
+import { useReducer } from "react";
 import "./index.css";
 
+function reducer(state, action) {}
+
 function App() {
+  const [{ currentOperand, operation }, dispatch] = useReducer(reducer, {});
   return (
     <div className="monkey-grid">
       <div className="output">
-        <div className="current-operand"></div>
+        <div className="current-operand">{currentOperand}</div>
       </div>
       <button>1</button>
       <button>2</button>
