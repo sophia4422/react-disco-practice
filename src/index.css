@@ -24,6 +24,10 @@ body {
   grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
 
+.span-two {
+  grid-column: span 2;
+}
+
 .monkey-grid > button {
   color: white;
   cursor: pointer;
@@ -38,10 +42,6 @@ body {
 .monkey-grid > button:hover,
 .monkey-grid > button:focus {
   background-color: rgba(255, 170, 0, 0.885);
-}
-
-.span-two {
-  grid-column: span 2;
 }
 
 .output {
