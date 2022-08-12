@@ -3,7 +3,8 @@ import { useReducer } from "react";
 import { Howl, Howler } from "howler";
 import DigitButton from "./DigitButton";
 import "./index.css";
-import Beep from "./audio/beep1.mp3";
+
+const audio = new Audio("https://stream.antenne.de/80er-kulthits?icy=https");
 
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
@@ -11,17 +12,9 @@ export const ACTIONS = {
   CALL_MONKEY: "call",
 };
 
-export const callMonkey = (src) => {
+export const callMonkey = () => {
   console.log("monkeyyyy");
-
-  const sound = new Howl({
-    src,
-    html5: true,
-  });
-  //make ringing sound start
-  // Play the sound.
-  sound.play();
-  //make monkey popup
+  audio.play();
 };
 
 function reducer(state, { type, payload }) {
@@ -64,7 +57,7 @@ function App() {
         <DigitButton digit="*" dispatch={dispatch} />
         <DigitButton digit="0" dispatch={dispatch} />
         <DigitButton digit="#" dispatch={dispatch} />
-        <button className="span-two" onClick={() => callMonkey(Beep)}>
+        <button className="span-two" onClick={callMonkey}>
           Call
         </button>
         <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
