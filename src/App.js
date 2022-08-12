@@ -2,9 +2,11 @@ import { StarRateOutlined } from "@mui/icons-material";
 import { useReducer } from "react";
 import { Howl, Howler } from "howler";
 import DigitButton from "./DigitButton";
+import beep from "./audio/beep1.mp3";
+import ringing from "./audio/ringing.mp3";
 import "./index.css";
 
-const audio = new Audio("https://stream.antenne.de/80er-kulthits?icy=https");
+const audio = new Audio(ringing);
 
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
