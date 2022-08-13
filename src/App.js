@@ -8,6 +8,8 @@ import "./index.css";
 
 const audio = new Audio(ringing);
 
+const beeping = new Audio(beep);
+
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   DELETE_DIGIT: "delete-digit",
@@ -20,6 +22,7 @@ export const callMonkey = () => {
 };
 
 function reducer(state, { type, payload }) {
+  beeping.play();
   switch (type) {
     case ACTIONS.ADD_DIGIT:
       if (payload.digit === "#" && state.currentOperand === "#") {
