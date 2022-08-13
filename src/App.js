@@ -7,7 +7,6 @@ import ringing from "./audio/ringing.mp3";
 import "./index.css";
 
 const audio = new Audio(ringing);
-
 const beeping = new Audio(beep);
 
 export const ACTIONS = {
@@ -18,7 +17,12 @@ export const ACTIONS = {
 
 export const callMonkey = () => {
   console.log("monkeyyyy");
+  //ringing plays when call button is pressed
   audio.play();
+
+  //need to make modal appear that says ringing...
+
+  //need to call a function that will render a new modal with a monkey and make animal crossing sound play
 };
 
 function reducer(state, { type, payload }) {
